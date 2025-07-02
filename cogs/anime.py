@@ -11,6 +11,7 @@ class Anime(commands.Cog):
         """Get a random Danbooru image with optional tags. Default: safe rating."""
 
         query_tags = '+'.join(tags.split())  # Convert tags to Danbooru format
+        query_tags += "+rating:safe+score:>100"
         url = f"https://danbooru.donmai.us/posts.json?tags={query_tags}&limit=1&random=true"
 
         async with aiohttp.ClientSession() as session:

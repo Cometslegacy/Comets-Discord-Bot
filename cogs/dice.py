@@ -36,7 +36,8 @@ class Dice(commands.Cog):
             roll_str += f" {sign} {abs(modifier)}"
 
         #await ctx.send(f"You rolled: {roll_str} = **{total}**")
-        await ctx.send(f"You rolled: {rolls} {modifier} = **{total}**")
+        modifier_str = f"+{modifier}" if modifier > 0 else (f"{modifier}" if modifier < 0 else "")
+        await ctx.send(f"You rolled: {rolls} {modifier_str} = **{total}**")
 
 async def setup(bot):
     await bot.add_cog(Dice(bot))
